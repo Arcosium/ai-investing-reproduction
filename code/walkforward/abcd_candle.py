@@ -3,7 +3,7 @@ import os
   표 6(25개 설정 spread_z·상위 적중) · 표 7(십분위 평균 z·적중) · 3장 2절 모멘텀(점수와 직전 20일 수익률 Spearman, 모멘텀 spread_z)
   · 표 10(heat·heatx·heatf spread_z) · 표 B1(lift / 미학습 lift) · LightGBM 1d·20·20(abcd_gbm/screen, 같은 종목군·봉).
 모멘텀·십분위 정의는 옛 D·A 값(+0.32·−0.19, −0.72·+0.08)을 재현하는 것으로 맞췄다. 없는 분기는 null.
-usage: MARKET_BARS=work/bars_hold PYTHONPATH=. python3 work/wf8/abcd_candle.py → results/wf8_abcd/candle.json"""
+usage: MARKET_BARS="$RESEARCH_DATA/work/bars_hold" PYTHONPATH="$PWD/code" python3 code/walkforward/abcd_candle.py → $RESEARCH_DATA/results/wf8_abcd/candle.json"""
 import json
 from pathlib import Path
 import numpy as np, pandas as pd

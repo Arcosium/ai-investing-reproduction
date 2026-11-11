@@ -34,7 +34,7 @@ python3 code/reproduce_main_results.py
 | B | 2024-12-01~2025-03-01 | 3 |
 | C | 2025-06-01~2025-09-01 | 5 |
 | D | 2025-12-01~2026-03-01 | 7 |
-| 남겨 둔 기간 | 2026-03-01~2026-06-01 | 8 |
+| 남겨 둔 기간 | 2026-03-01~2026-06-01 | 별도 평가 |
 
 A~D를 합친 평가일은 364일, 남겨 둔 기간은 92일이다. 코호트 장부를 계산한 뒤 각 달력 구간만 잘라 합친다. 구간 사이 날짜는 수익률 표에 넣지 않는다. Sharpe는 일별 단순수익률의 평균을 표본 표준편차로 나눈 뒤 √365를 곱한다. 합산 Sharpe는 구간별 Sharpe의 평균이 아니다.
 
@@ -67,7 +67,7 @@ python3 -m pip install matplotlib
 PAPER_FONT=/path/to/korean-font.ttf python3 code/figures.py
 ```
 
-상관 계산에는 기본 의존성만 필요하다. `score_inputs.csv.gz`는 종목·판단 시각별 입력 두 개(`ret_W`, `vol_W`)와 CNN·LightGBM 점수를 묶은 자료다. `fold`는 입력 수집 때의 내부 식별자이므로 분기 번호와 다르다. 대응은 `score_corr.py`의 `SEG`에 고정했다. 수익률·변동성은 입력 창 60봉 기준이다.
+상관 계산에는 기본 의존성만 필요하다. `score_inputs.csv.gz`는 종목·판단 시각별 입력 두 개(`ret_W`, `vol_W`)와 CNN·LightGBM 점수를 묶은 자료다. `fold`는 입력 수집 때의 내부 식별자이므로 분기 번호와 다르다. 대응은 `score_corr.py`의 `SEG`에 고정했다. 수익률·변동성은 입력 창 60봉 기준이다. 상관 계산용 D 구간 자료는 2026-02-14 20:00(UTC)까지로, 판단 시각은 456개다(A·C는 각 552개, B는 540개). 논문의 상관 값도 이 자료로 계산했다.
 
 그림은 `output/figures/`에 생긴다. `PAPER_FONT`에는 설치된 한국어 TTF·OTF 파일을 지정한다. 논문에 사용한 네 PNG는 `results/figures/`에 있으며, 같은 수치라도 서체·렌더러에 따라 픽셀은 달라질 수 있다. 폰트 파일은 포함하지 않았다.
 
@@ -118,7 +118,7 @@ python3 code/calendar/cal_extra.py
 python3 code/calendar/dsr_cal.py
 ```
 
-`walkforward/analyze.py`, `abcd_candle.py`, `abcd_light.py`, `legs.py`에는 원 실험의 예측 파일 배치와 보조 분석을 남겼다. 기본 평가 분기는 `1,3,5,7`이다. 이 코드의 `work/results` 파일명과 설정 매핑까지 준비해야 원시 단계 집계가 가능하다. `calendar/`의 평가 코드와 `market/`의 학습·백테스트 코드는 경로·패키지 이름을 이 묶음에 맞췄고 수치 계산식은 유지했다.
+`walkforward/analyze.py`, `abcd_candle.py`, `abcd_light.py`, `legs.py`에는 원 실험의 예측 파일 배치와 보조 분석을 남겼다. 기본 평가 분기는 `1,3,5,7`이다. 이 코드의 `work/results` 파일명과 설정 매핑까지 준비해야 원시 단계 집계가 가능하다. `analyze.py`의 BTC 보조 분석에는 `$RESEARCH_DATA/work/bars_ext/4h/BTC.parquet` 캐시도 필요하다. `calendar/`의 평가 코드와 `market/`의 학습·백테스트 코드는 경로·패키지 이름을 이 묶음에 맞췄고 수치 계산식은 유지했다.
 
 ## 환경과 재현 범위
 

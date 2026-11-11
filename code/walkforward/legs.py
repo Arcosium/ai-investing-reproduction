@@ -1,5 +1,5 @@
 """7장 3절 <표 22>: CNN·LightGBM 다리별 Sharpe(MDD)와 숏 다리 구성. analyze.py 를 같은 WF8_DIR·WF8_QS 로 돌린 뒤 실행.
-  MARKET_BARS=work/bars_hold PYTHONPATH=. WF8_DIR=wf8_abcd WF8_QS=1,3,5,7 python3 work/wf8/legs.py  →  results/<WF8_DIR>/legs.json
+  MARKET_BARS="$RESEARCH_DATA/work/bars_hold" PYTHONPATH="$PWD/code" WF8_DIR=wf8_abcd WF8_QS=1,3,5,7 python3 code/walkforward/legs.py  →  $RESEARCH_DATA/results/<WF8_DIR>/legs.json
 """
 import json, os, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor

@@ -1,6 +1,6 @@
 """시장 매크로 표 — 해상도별 ts 마다 BTC 24h·7d 수익률과 7d 변동성, 시장 폭(상위 200 중 24h 양수 비율), 유니버스 24h 중앙 수익, 펀딩(BTC 8h).
 GBM 피처(--macro)와 CNN 채널(macro 평면)이 같은 표를 쓴다. 전부 판단 시각 이전 값만.
-usage: MARKET_BARS=work/bars_full python3 -m market.macro --res 15m,1h,4h,1d --top 200 → work/macro_<res>.parquet
+usage: (cd "$RESEARCH_DATA" && MARKET_BARS="$RESEARCH_DATA/work/bars_hold" python3 -m market.macro --res 15m,1h,4h,1d --top 200) → $RESEARCH_DATA/work/macro_<res>.parquet
 """
 import argparse, os
 import numpy as np

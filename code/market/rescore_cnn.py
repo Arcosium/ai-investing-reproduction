@@ -1,6 +1,6 @@
 """동결 가중치로 heatf CNN 점수만 다시 낸다(학습·선택 없음) — 표본 외 구간을 뒤로 늘릴 때.
 데이터 준비·횡단면 순위·표준화(json 의 feat_mu/feat_sd)·예측은 train_cnn 과 같은 함수를 쓰므로 같은 봉이면 같은 점수가 나온다.
-usage: MARKET_BARS=work/bars_ext python3 -m market.rescore_cnn --stem work/results/hold_i1_heatf{,_sd1}_4h_W60_H84_s5 --test 2026-06 --test_end 2026-10 --out_dir work/results/ext
+usage: (cd "$RESEARCH_DATA" && MARKET_BARS="$RESEARCH_DATA/work/bars_hold" python3 -m market.rescore_cnn --stem work/results/hold_i1_heatf{,_sd1}_4h_W60_H84_s5 --test 2026-06 --test_end 2026-10 --out_dir work/results/ext)
   → <out_dir>/<stem 이름>_pred.npz. 여러 stem 은 같은 종목·설정(시드만 다름)이어야 하고 창은 한 번만 만든다.
 """
 import argparse, json, os, types

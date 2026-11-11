@@ -2,7 +2,7 @@
 24.03~05(q0)는 학습 자료가 11개월뿐이라 시험 분기에서 뺀다(첫 시험 분기 학습 2023.01~2024.02).
 분기 q 의 예측: 새로 학습한 q0·q2·q4·q5 는 wf8_*, 기존 A·B·C·D(= q1·q3·q6·q7)와 홀드아웃(q8)은 9/8 학습 파일. 코호트는 현재 market.cohort 로 전부 다시 계산.
 합산은 분기 예측을 이어 붙인 한 파일로 코호트를 한 번 돌린다(분기 경계에서 겹치는 보유 기간을 두 번 세지 않는다).
-  MARKET_BARS=work/bars_hold PYTHONPATH=. python3 work/wf8/analyze.py  →  results/wf8/*.csv, results/wf8/facts.json
+  MARKET_BARS="$RESEARCH_DATA/work/bars_hold" PYTHONPATH="$PWD/code" python3 code/walkforward/analyze.py  →  $RESEARCH_DATA/results/wf8_abcd/*.csv, facts.json
 """
 import json, os, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor

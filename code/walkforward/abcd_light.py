@@ -1,7 +1,7 @@
 """분기별 표 18(CNN 점수·발생 확률 Spearman), 표 25(다리 유동성), 9장 숏 청산 추정. 학습·코호트 없이 예측과 4시간봉만 읽는다.
 원래 계산 코드가 남아 있지 않아(results/ext_orth.csv·ext_shortleg.csv·paper/liquidity_legs.csv) 같은 정의로 다시 썼다.
 --check 는 옛 폴드 0(분기 D, ens_heatf10_direct_4h_s0) 로 옛 D 행을 재현하는지 본다.
-usage: MARKET_BARS=work/bars_hold PYTHONPATH=. python3 work/wf8/abcd_light.py [--check]  →  results/wf8_abcd/light.json"""
+usage: MARKET_BARS="$RESEARCH_DATA/work/bars_hold" PYTHONPATH="$PWD/code" python3 code/walkforward/abcd_light.py [--check]  →  $RESEARCH_DATA/results/wf8_abcd/light.json"""
 import json, sys
 from pathlib import Path
 import numpy as np, pandas as pd
