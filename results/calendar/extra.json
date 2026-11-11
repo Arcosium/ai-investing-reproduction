@@ -1,0 +1,33 @@
+{
+ "cnn3": {
+  "sharpe": 3.39,
+  "ret": 47.38,
+  "mdd": -4.17,
+  "days": 364
+ },
+ "m2": {
+  "sharpe": 2.05,
+  "ret": 42.83,
+  "mdd": -8.18,
+  "days": 364
+ },
+ "m1": {
+  "sharpe": 2.46,
+  "ret": 37.87,
+  "mdd": -5.25,
+  "days": 364
+ },
+ "unique_bases": 319,
+ "per_ts_min": 186,
+ "per_ts_max": 197,
+ "ann_vol_pct": {
+  "CNN": 12.1,
+  "GBM": 16.5,
+  "random1": 2.4,
+  "random2": 2.0,
+  "LLM_heat": 4.0,
+  "LLM_chart": 10.2,
+  "LLM_context": 11.9,
+  "rule_zW": 12.1
+ }
+}
