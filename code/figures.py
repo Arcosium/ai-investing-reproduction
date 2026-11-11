@@ -13,9 +13,10 @@ A = ROOT / 'output/figures'
 A.mkdir(parents=True, exist_ok=True)
 import os
 font = os.environ.get('PAPER_FONT')
-if font:
-    font_manager.fontManager.addfont(font)
-family = font_manager.FontProperties(fname=font).get_name() if font else 'DejaVu Sans'
+if not font:
+    raise SystemExit('Set PAPER_FONT to an installed Korean TTF/OTF file before rendering.')
+font_manager.fontManager.addfont(font)
+family = font_manager.FontProperties(fname=font).get_name()
 plt.rcParams.update({'font.family': family, 'axes.unicode_minus': False, 'font.size': 9,
                      'axes.spines.top': False, 'axes.spines.right': False, 'savefig.dpi': 220, 'hatch.color': 'white'})
 INK, GRAY, LIGHT, RED = '#222222', '#888888', '#cccccc', '#a83b32'
